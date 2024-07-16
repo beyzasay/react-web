@@ -1,4 +1,5 @@
-import { useState } from 'react'
+
+import React from 'react'
 
 import './App.css'
 import PageContainer from './container/PageContainer'
@@ -9,7 +10,7 @@ function App() {
 
 
   return (
-    <div> <PageContainer>
+    <div id="root"> <PageContainer>
       <Header />
     </PageContainer>
     </div>
