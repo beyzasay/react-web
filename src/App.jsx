@@ -4,7 +4,9 @@ import React from 'react'
 import './App.css'
 import PageContainer from './container/PageContainer'
 import Header from './components/Header'
-import ProductList from './components/ProductList'
+
+import RouterConfig from './config/RouterConfig'
+import Loading from './components/Loading'
 
 
 function App() {
@@ -12,8 +14,11 @@ function App() {
 
   return (
     <div > <PageContainer>
+
       <Header />
-      <ProductList />
+      <RouterConfig />
+
+      <Loading />
     </PageContainer>
     </div>
   )
