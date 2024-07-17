@@ -1,7 +1,10 @@
 import React from 'react'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllProducts } from '../redux/slices/productSlice';
+
+
+
 function ProductList() {
     const dispatch = useDispatch();
     const { products } = useSelector((store) => store.product);
@@ -14,7 +17,7 @@ function ProductList() {
 
 
     return (
-        <div>ProductList</div>
+        <div>Product List</div>
     )
 }
 

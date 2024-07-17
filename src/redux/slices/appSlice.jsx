@@ -1,3 +1,4 @@
+
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
@@ -7,10 +8,7 @@ const initialState = {
 export const appSlice = createSlice({
     name: "app",
     initialState,
-    reducers: {
-
-
-    },
+    reducers: {},
     extraReducers: (builder) => {
 
 
