@@ -18,14 +18,15 @@ function ProductList() {
 
 
     return (
-        <div>
+        <div className='flex-row' style={{ flewWrap: 'wrap' }
+        }>
             {
 
                 products && products.map((product) => (
                     <Product key={product.id} product={product} />
                 )
                 )}
-        </div>
+        </div >
     )
 }
 

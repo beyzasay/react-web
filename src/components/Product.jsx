@@ -5,11 +5,11 @@ function Product({ product }) {
   const { id, price, image, title, description } = product;
 
   return (
-    <div>
+    <div className='card'>
       <img className='image' src={image} alt="" />
       <div>
-        <p> {title} </p>
-        <h3>{price} </h3>
+        <p style={{ textAlign: 'center', height, ght: '50px' }}> {title} </p>
+        <h3 style={{ textAlign: 'center' }}>{price} </h3>
       </div>
     </div>
   )
