@@ -11,6 +11,7 @@ function ProductList() {
     const { products } = useSelector((store) => store.product);
     console.log(products)
 
+
     useEffect(() => {
         dispatch(getAllProducts())
 
