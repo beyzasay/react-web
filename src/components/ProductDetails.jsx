@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { setSelectedProduct } from '../redux/slices/productSlice';
 import { CiCirclePlus } from "react-icons/ci";
 import { CiCircleMinus } from "react-icons/ci";
+import { addToBasket } from '../redux/slices/basketSlice';
 
 function ProductDetails() {
   const { id } = useParams();
@@ -11,7 +12,31 @@ function ProductDetails() {
 
   const { price, image, title, description } = selectedProduct;
 
+  const [count, setCount] = useState(0);
+
   const dispatch = useDispatch();
+
+  const increment = () => {
+    setCount(count + 1)
+
+  }
+  const decrement = () => {
+    setCount(count - 1)
+  }
+
+  const addBasket = () => {
+    const payload = {
+      id,
+      price,
+      image,
+      title,
+      description,
+      count
+    }
+    dispatch(addToBasket(payload));
+  }
+
+
 
   useEffect(() => {
     getProductById();
@@ -27,24 +52,39 @@ function ProductDetails() {
     })
   }
   return (
-    <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-      <div style={{ marginRight: '10px' }}>
+    <div style={{ marginTop: '30px', display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+      <div style={{ marginRight: '40px' }}>
         <img src={image} width={300} height={450} alt="" />
       </div>
       <div>
         <h1 style={{ fontFamily: 'arial' }}> {title} </h1>
         <p style={{ fontFamily: 'arial', fontSize: '20px' }} > {description} </p>
         <h1 style={{
-          fontSize: '50px', fontFamily: 'arial', fontWeight: 'bold', color:
-            'black'
-        }}> {price}</h1>
+          fontSize: '50px',
+          fontFamily: 'arial',
+          fontWeight: 'bold',
+          color: 'black'
+        }}>  {price} </h1>
 
         <div style={{ display: 'flex', alignItems: 'center' }}>
 
-          <CiCirclePlus style={{ fontSize: '40px', marginRight: '5px' }} />  <span style={{ fonSize: '35px' }}  > 0</span>
-          <CiCircleMinus style={{ fontSize: '40px' }} /> < CiCircleMinus />
+          <CiCirclePlus onClick={increment} style={{ fontSize: '40px', marginRight: '15px' }} />  <span style={{ fonSize: '35px' }}  > {count}</span>
+          <CiCircleMinus onClick={decrement} style={{ fontSize: '40px', marginLeft: '15px' }} />
         </div>
+        <div>
+          <button
+            onClick={addBasket}
+            style={{
+              marginTop: ' 25px',
+              border: 'none',
+              padding: '20px',
+              backgroundColor: 'gray',
+              color: '#fff',
+              borderRadius: '5px'
+            }}> Sepete Ekle </button>
 
+
+        </div>
       </div>
 
     </div>

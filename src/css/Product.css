@@ -32,7 +32,5 @@
 .detail-button:hover {
     cursor: pointer;
     background-color: rgb(120, 115, 115);
-
-
-
+    transition: all 0.6s;
 }
